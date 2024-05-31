@@ -4,14 +4,42 @@
 
 {% block content %}
 <h1>{{ question.question_text }}</h1>
+
 <ul>
     {% for c in question.choice_set.all %}
     <li> {{ c.choice_text }} - {{ c.votes }} voto{{ c.votes | pluralize }}</li>
-
     {% endfor %}
-
-
 </ul>
+
+<div class="chart-container">
+    <canvas id="resultChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('resultChart').getContext('2d');
+    var resultChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: JSON.parse('{{ choice_texts|escapejs }}'),
+            datasets: [{
+                label: '# de votos',
+                data: JSON.parse('{{ votes|escapejs }}'),
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
 <hr>
 <a href="{% url 'poll:home' %}">Encuestas</a>
 {% endblock %}

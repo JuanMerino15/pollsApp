@@ -1,19 +1,85 @@
 body {
     padding: 0;
     margin: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    width: 199vw;
+    font-family: 'Roboto', sans-serif; 
+    width: 100vw;
     height: 100vh;
     display: grid;
     place-items: center;
-
-}
-
-.container{
-    width: 90%;
+    background-image: url("path/to/fondo-bacano.jpg"); 
+    background-size: cover; 
+    background-position: center; 
+  }
+  
+  .container {
+    width: 80%; 
     text-align: center;
+    color: #1b1a1a; 
+    border: 2px solid #5c3de7; 
+    border-radius: 10px;
+    padding: 30px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); 
+  }
+  
+  ul li {
+    list-style-type: none;
+    margin: 15px 0; 
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    transition: transform 0.3s ease-in-out; 
+  }
+  
+  ul li:hover {
+    transform: scale(1.1); 
+  }
+
+  #resultChart {
+    max-width: 800px; 
+    max-height: 500px; 
+    width: 100%;
+    height: auto;
+}
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: 0 auto;
+}
+form {
+    width: 50%;
+    margin: auto;
+}
+.votes {
+    
+    text-align: left;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-ul li{
-    list-style-type: none;
+.votes input[type="radio"] {
+    margin-right: 10px;
+}
+
+.votes label {
+    font-size: 18px;
+    color: #555;
+}
+
+.button {
+    margin-top: 20px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
 }
